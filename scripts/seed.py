@@ -12,11 +12,24 @@ class Seed:
     db_path = "../main/database"
     db_name = "github_users.db"
 
+    def _create_dir(self):
+        path = os.path.join(basedir, self.db_path)
+        
+        return os.mkdir(path)
+
     def _sql_connection(self):
-        path_dir = os.path.join(basedir, f"{self.db_path}/{self.db_name}")
+        path_file = f"{self.db_path}/{self.db_name}"
+        path_dir = os.path.join(basedir, path_file)
+        path = os.path.join(basedir, self.db_path)
+        isFile = os.path.exists(path)
+        if not isFile:
+            print("Dir not found")
+            os.makedirs(path, exist_ok=False)
+        
         print(f"Path: {path_dir}")
         try:
-            con = sqlite3.connect(os.path.join(basedir, f"{self.db_path}/{self.db_name}"))
+            con = sqlite3.connect(path_dir)
+            
             return con
         except Error:
             print(Error)
@@ -114,7 +127,7 @@ class Seed:
             # for r in row:
             #     list_all.append(r)
         # names = [{description[0]: description} for description in cursor.description]
-        # print(list_all)
+        print(list_all)
         return list_all
 
     def order_by(self, value):
