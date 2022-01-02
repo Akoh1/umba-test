@@ -4,7 +4,7 @@ import os
 from decouple import config
 
 # from .app import app, db
-from app import app,db
+from main import app,db
 # from config import DevelopmentConfig, ProductionConfig
 
 
