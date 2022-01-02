@@ -19,4 +19,4 @@ EXPOSE 3000
 # ENTRYPOINT [""]
 # CMD ["python", "manage.py", "runserver"]
 # CMD ["python", "app.py"]
-ENTRYPOINT ["gunicorn","--bind","0.0.0.0:5000","app:app"]
+ENTRYPOINT ["gunicorn","--bind","0.0.0.0:5000","main:app"]
