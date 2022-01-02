@@ -59,7 +59,7 @@ def users_page(page):
     page = int(page)
     prev = page - 1
     _next = page + 1
-    page = page -1
+    page_n = page -1
     print(f"page num: {page}")
     res = request.args
     limit = 25
@@ -69,7 +69,7 @@ def users_page(page):
         print(f'page: {limit}')
 
     users = Seed()
-    all_users = users.select_all(page=page, limit=limit)
+    all_users = users.select_all(page=page_n, limit=limit)
     
 
     num_of_pages = math.ceil(int(users.count_rows()) / 25) + 1
@@ -83,7 +83,9 @@ def users_page(page):
     print(f"Length in pages {length}")
     # return f'Data: {all_users}'
    
-    return render_template('users.html', users=all_users, prev=prev, next=_next, num_pages=num_list, len=length)
+    return render_template('users.html', users=all_users, prev=prev, 
+                           next=_next, num_pages=num_list, len=length,
+                           page=page, pages=num_of_pages)
 
 @app.route("/")
 def home():
@@ -161,4 +163,4 @@ def get_users():
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True, host='0.0.0.0')

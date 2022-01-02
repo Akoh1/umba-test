@@ -5,10 +5,11 @@ from decouple import config
 
 # from .app import app, db
 from app import app,db
+# from config import DevelopmentConfig, ProductionConfig
 
 
-# app.config.from_object(os.environ['APP_SETTINGS'])
 app.config.from_object(config('APP_SETTINGS'))
+# app.config.from_object(ProductionConfig)
 # app.config.from_pyfile('config.py')
 # app.config.from_object("config.DevelopmentConfig")
 

@@ -72,7 +72,7 @@ class Seed:
                     if i <= int(sys.argv[2]):
                         print("Adding Data to users table")
                         cursorObj.execute(
-                            "INSERT INTO users "
+                            "INSERT OR IGNORE INTO users "
                             "VALUES ('%d','%s','%s','%s', '%s')"
                             % (data[i]['id'], data[i]['login'], 
                                 data[i]['avatar_url'], data[i]['type'], data[i]['url'])
