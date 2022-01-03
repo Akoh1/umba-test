@@ -19,7 +19,7 @@ RUN python ./scripts/seed.py
 # ENTRYPOINT [""]
 # CMD ["python", "manage.py", "runserver"]
 # CMD ["python", "main.py"]
-CMD ["gunicorn","--bind","0.0.0.0:5000","main:app"]
+CMD ["gunicorn","main:app"]
 # ENTRYPOINT ["gunicorn","--bind","0.0.0.0:3000","manage:application"]
 # ENTRYPOINT ["gunicorn","--bind","0.0.0.0:5000","main:app"]
 # ENTRYPOINT ["gunicorn main:app --bind=0.0.0.0:3000"]
