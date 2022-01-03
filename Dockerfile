@@ -6,17 +6,20 @@ WORKDIR /app
 # RUN python /app/scripts/seed.py
 COPY . /app/
 # install environment dependencies
-RUN pip3 install --upgrade pip 
-RUN pip3 install virtualenv
+# RUN pip3 install --upgrade pip 
+# RUN pip3 install virtualenv
 
-# create virtualenvironment
-RUN virtualenv -p python3 .virtualenv
-RUN . .virtualenv/bin/activate
+# # create virtualenvironment
+# RUN virtualenv -p python3 .virtualenv
+# RUN . .virtualenv/bin/activate
 
 RUN pip3 install -r requirements.txt
 RUN python ./scripts/seed.py
-EXPOSE 3000
+
 # ENTRYPOINT [""]
 # CMD ["python", "manage.py", "runserver"]
-# CMD ["python", "app.py"]
-ENTRYPOINT ["gunicorn","--bind","0.0.0.0:5000","main:app"]
+# CMD ["python", "main.py"]
+CMD ["gunicorn","--bind","0.0.0.0:5000","main:app"]
+# ENTRYPOINT ["gunicorn","--bind","0.0.0.0:3000","manage:application"]
+# ENTRYPOINT ["gunicorn","--bind","0.0.0.0:5000","main:app"]
+# ENTRYPOINT ["gunicorn main:app --bind=0.0.0.0:3000"]
