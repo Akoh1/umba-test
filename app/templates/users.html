@@ -6,17 +6,17 @@
     <p>Home page</p>
     <ul class="pagination">
         {% if page != 1 %}
-        <li class="page-item"><a class="page-link" href="{{ url_for('users_page', page=prev) }}">Previous</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('home.users_page', page=prev) }}">Previous</a></li>
         {% endif %}
         {% for i in range(len) %}
        
         <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
         <li class="page-item"><a class="page-link" href="#">2</a></li> -->
-        <li class="page-item"><a class="page-link" href="{{ url_for('users_page', page=num_pages[i]) }}">{{num_pages[i]}}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('home.users_page', page=num_pages[i]) }}">{{num_pages[i]}}</a></li>
       
         {% endfor %}
         
-        <li class="page-item"><a class="page-link" href="{{ url_for('users_page', page=next) }}">Next</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('home.users_page', page=next) }}">Next</a></li>
        
       </ul>
      
