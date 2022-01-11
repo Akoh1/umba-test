@@ -9,7 +9,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 class Seed:
 
-    db_path = "../main/database"
+    db_path = "../instance/main/database"
     db_name = "github_users.db"
 
     def _create_dir(self):

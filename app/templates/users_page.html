@@ -10,7 +10,7 @@
        
         <!-- <li class="page-item active"><a class="page-link" href="#">1</a></li>
         <li class="page-item"><a class="page-link" href="#">2</a></li> -->
-        <li class="page-item"><a class="page-link" href="{{ url_for('users_page', page=num_pages[i]) }}">{{num_pages[i]}}</a></li>
+        <li class="page-item"><a class="page-link" href="{{ url_for('home.users_page', page=num_pages[i]) }}">{{num_pages[i]}}</a></li>
       
         {% endfor %}
   
